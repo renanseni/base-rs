@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ErrorInterceptorService implements HttpInterceptor {
+export class ErrorInterceptor implements HttpInterceptor {
 
   constructor(private authenticationService: AuthenticationService) { }
 

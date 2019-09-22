@@ -13,6 +13,7 @@ export class AuthenticationService {
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient) {
+    let test = JSON.parse(localStorage.getItem('userData'));
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -31,7 +32,7 @@ export class AuthenticationService {
       .pipe(map(user => {
         //login sucessful if there's a token in reponse
         if (user && user.access_token) {
-          localStorage.setItem('curretUser', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
         }
 

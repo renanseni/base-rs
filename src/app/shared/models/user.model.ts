@@ -4,4 +4,5 @@ export class User {
     firstName: string;
     lastName: string;
     token?: string;
+    access_token?: string;
 }

@@ -1,3 +1,4 @@
+import { HomeService } from './../../service/home.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly homeService: HomeService) { }
 
   ngOnInit() {
+    this.get();
+  }
+
+  get() {
+    this.homeService.getAll().subscribe(items => {
+      var result = items;
+    });
   }
 
 }
